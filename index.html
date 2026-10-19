@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Golden Whisk — Recipes worth gathering around</title>
+<meta name="description" content="Searchable, savable recipes with step-by-step instructions and a servings scaler.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="hero">
+  <nav class="topbar" aria-label="Main">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">GW</span> The Golden Whisk</div>
+    <button id="favToggle" class="fav-toggle" type="button" aria-pressed="false">♥ Favourites only <span id="favCount" class="badge">0</span></button>
+  </nav>
+  <div class="hero-inner">
+    <p class="eyebrow">Home cooking, made joyful</p>
+    <h1>Recipes worth<br>gathering around.</h1>
+    <p class="tagline">Search by craving or by what's already in your fridge. Save your favourites, scale the servings, and cook with confidence.</p>
+    <label class="search-wrap">
+      <span class="sr-only">Search recipes by title or ingredient</span>
+      <span class="search-icon" aria-hidden="true">⌕</span>
+      <input id="searchInput" type="search" placeholder="Try ‘tomato’, ‘salmon’, ‘chocolate’…" autocomplete="off">
+      <button id="clearSearch" class="clear-btn" type="button" hidden>Clear</button>
+    </label>
+    <div class="chips" role="group" aria-label="Filter recipes">
+      <button class="chip active" data-filter="all" type="button">All</button>
+      <button class="chip" data-filter="breakfast" type="button">Breakfast</button>
+      <button class="chip" data-filter="mains" type="button">Mains</button>
+      <button class="chip" data-filter="desserts" type="button">Desserts</button>
+      <button class="chip" data-filter="vegetarian" type="button">Vegetarian</button>
+      <button class="chip" data-filter="quick" type="button">Quick · under 30 min</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <div class="results-row"><h2 id="resultsTitle">All recipes</h2><p id="resultsCount" aria-live="polite"></p></div>
+  <section id="grid" class="grid" aria-label="Recipes"></section>
+  <div id="empty" class="empty" hidden>
+    <div class="empty-art" aria-hidden="true">GW</div>
+    <h3>No recipes match that search</h3>
+    <p>Try a different ingredient, clear your filters, or turn off “Favourites only”.</p>
+    <button id="resetBtn" class="primary-btn" type="button">Show all recipes</button>
+  </div>
+</main>
+
+<footer class="footer"><p><strong>The Golden Whisk</strong> — Cook something lovely today.</p><p class="muted">Photos via Unsplash. Favourites are saved only in your browser.</p></footer>
+
+<div id="modalBackdrop" class="backdrop" hidden>
+  <article id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button id="modalClose" class="close-btn" type="button" aria-label="Close recipe">×</button>
+    <div id="modalContent"></div>
+  </article>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
